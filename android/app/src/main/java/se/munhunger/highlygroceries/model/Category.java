@@ -20,6 +20,11 @@ public class Category {
         setCategory(category);
     }
 
+    public Category(String category, List<Item> items) {
+        this(category);
+        this.items = items;
+    }
+
     public String getCategory() {
         return category;
     }
@@ -34,6 +39,7 @@ public class Category {
 
     public void addItem(Item item) {
         this.items.add(item);
+        item.setCategory(this);
     }
 
     public void setItems(List<Item> items) {

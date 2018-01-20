@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">HighlyGroceries</string>
+    <string name="app_name">Highly Groceries</string>
+    <string name="show_removed">Show removed items</string>
+    <string name="hide_removed">Hide removed items</string>
 </resources>

@@ -7,6 +7,7 @@ package se.munhunger.highlygroceries.model;
 public class Item {
     private String title;
     private boolean purchased;
+    private Category category;
 
     public Item(){
         setPurchased(false);
@@ -31,5 +32,13 @@ public class Item {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
