@@ -1,7 +1,4 @@
 package se.munhunger.highlygroceries.activities;
-
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,7 +9,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -27,6 +23,8 @@ import se.munhunger.highlygroceries.service.ListService;
  */
 
 public class GroceryList extends AppCompatActivity {
+
+    public static final String LIST_INTENT = GroceryList.class.getCanonicalName() + ".list";
 
     private static final int ITEM_REMOVAL_DELAY = 700;
 
