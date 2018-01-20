@@ -5,16 +5,26 @@ import java.util.List;
 
 import se.munhunger.highlygroceries.model.Category;
 import se.munhunger.highlygroceries.model.Item;
+import se.munhunger.highlygroceries.model.GroceryLists;
 
 /**
  * Created by munHunger on 2018-01-20.
  */
 
 public class ListService {
-    public List<Category> getList() {
+
+    public List<GroceryLists> getLists() {
+        List<GroceryLists> lists = new ArrayList<>();
+        lists.add(new GroceryLists("Weekly", "1"));
+        lists.add(new GroceryLists("Christmas cooking", "41"));
+        return lists;
+    }
+
+    public List<Category> getList(String id) {
         List<Category> groceryList = new ArrayList<>();
         Category category = new Category("Test Category");
         category.addItem(new Item("Malk"));
+        category.addItem(new Item(id));
         category.addItem(new Item("Onion"));
         category.addItem(new Item("Banana"));
         groceryList.add(category);

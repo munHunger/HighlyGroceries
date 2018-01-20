@@ -1,7 +1,4 @@
 package se.munhunger.highlygroceries.activities;
-
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,13 +9,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import se.munhunger.highlygroceries.R;
 import se.munhunger.highlygroceries.model.Category;
+import se.munhunger.highlygroceries.model.GroceryLists;
 import se.munhunger.highlygroceries.model.Item;
 import se.munhunger.highlygroceries.service.ListService;
 
@@ -28,7 +25,9 @@ import se.munhunger.highlygroceries.service.ListService;
 
 public class GroceryList extends AppCompatActivity {
 
-    private static final int ITEM_REMOVAL_DELAY = 700;
+    public static final String LIST_INTENT = GroceryList.class.getCanonicalName() + ".list";
+
+    private static final int ITEM_REMOVAL_DELAY = 300;
 
     private ListService listService = new ListService();
 
@@ -40,7 +39,8 @@ public class GroceryList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grocery_list);
-        this.groceryList = listService.getList();
+        GroceryLists groceryList = (GroceryLists) getIntent().getSerializableExtra(LIST_INTENT);
+        this.groceryList = listService.getList(groceryList.getId());
         rebuildLists();
     }
 
@@ -93,14 +93,14 @@ public class GroceryList extends AppCompatActivity {
                             public void run() {
                                 for(int i = 0; i < 20; i++) {
                                     try {
-                                        Thread.sleep(50);
+                                        Thread.sleep(20);
                                     } catch (InterruptedException e) {
                                         e.printStackTrace();
                                     }
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
-                                            checkBox.setAlpha(checkBox.getAlpha() - 0.2f);
+                                            checkBox.setAlpha(checkBox.getAlpha() - 0.05f);
                                         }
                                     });
                                 }
@@ -112,7 +112,7 @@ public class GroceryList extends AppCompatActivity {
                                 });
                             }
                         };
-                        new Timer().schedule(removeTask, ITEM_REMOVAL_DELAY/2);
+                        new Timer().schedule(removeTask, ITEM_REMOVAL_DELAY);
                     }
                 });
                 linearLayout.addView(checkBox);
