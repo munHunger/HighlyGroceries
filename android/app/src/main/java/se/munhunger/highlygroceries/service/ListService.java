@@ -18,6 +18,12 @@ public class ListService {
         category.addItem(new Item("Onion"));
         category.addItem(new Item("Banana"));
         groceryList.add(category);
+
+        category = new Category("Other");
+        category.addItem(new Item("Weed"));
+        category.addItem(new Item("Coke(powdered)"));
+        category.addItem(new Item("Pills"));
+        groceryList.add(category);
         return groceryList;
     }
 }
