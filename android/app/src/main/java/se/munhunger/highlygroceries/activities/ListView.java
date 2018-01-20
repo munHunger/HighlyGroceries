@@ -3,13 +3,20 @@ package se.munhunger.highlygroceries.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.util.List;
 
 import se.munhunger.highlygroceries.R;
+import se.munhunger.highlygroceries.admob.AdMob;
 import se.munhunger.highlygroceries.views.GroceryListItemView;
 import se.munhunger.highlygroceries.model.GroceryLists;
 import se.munhunger.highlygroceries.service.ListService;
@@ -42,5 +49,9 @@ public class ListView extends AppCompatActivity {
                 }
             });
         }
+        MobileAds.initialize(this, AdMob.ADMOB_APP_ID);
+        AdView adView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
     }
 }
