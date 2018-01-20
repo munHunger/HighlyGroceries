@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import se.munhunger.highlygroceries.R;
+import se.munhunger.highlygroceries.views.GroceryListItemView;
 import se.munhunger.highlygroceries.model.GroceryLists;
 import se.munhunger.highlygroceries.service.ListService;
 
@@ -29,10 +30,10 @@ public class ListView extends AppCompatActivity {
         LinearLayout list = findViewById(R.id.list);
         List<GroceryLists> lists = listService.getLists();
         for(final GroceryLists groceryList : lists) {
-            TextView textView = new TextView(context);
-            textView.setText(groceryList.getTitle());
-            list.addView(textView);
-            textView.setOnClickListener(new View.OnClickListener() {
+            GroceryListItemView groceryListItemView = new GroceryListItemView(context);
+            groceryListItemView.setGroceryList(groceryList);
+            list.addView(groceryListItemView);
+            groceryListItemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, GroceryList.class);

@@ -20,10 +20,11 @@ public class ListService {
         return lists;
     }
 
-    public List<Category> getList() {
+    public List<Category> getList(String id) {
         List<Category> groceryList = new ArrayList<>();
         Category category = new Category("Test Category");
         category.addItem(new Item("Malk"));
+        category.addItem(new Item(id));
         category.addItem(new Item("Onion"));
         category.addItem(new Item("Banana"));
         groceryList.add(category);
