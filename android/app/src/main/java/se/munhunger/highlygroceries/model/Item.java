@@ -8,6 +8,15 @@ public class Item {
     private String title;
     private boolean purchased;
 
+    public Item(){
+        setPurchased(false);
+    }
+
+    public Item(String title) {
+        this();
+        setTitle(title);
+    }
+
     public boolean isPurchased() {
         return purchased;
     }
