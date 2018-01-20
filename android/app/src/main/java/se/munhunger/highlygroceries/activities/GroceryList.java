@@ -3,6 +3,7 @@ package se.munhunger.highlygroceries.activities;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -32,9 +33,15 @@ public class GroceryList extends AppCompatActivity {
             TextView textView = new TextView(this);
             textView.setText(category.getCategory());
             linearLayout.addView(textView);
-            for(Item item : category.getItems()) {
+            for(final Item item : category.getItems()) {
                 CheckBox checkBox = new CheckBox(this);
                 checkBox.setText(item.getTitle());
+                checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        item.setPurchased(!isChecked);
+                    }
+                });
                 linearLayout.addView(checkBox);
             }
         }
