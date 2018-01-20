@@ -25,23 +25,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GroceryList.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GroceryList.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/se/munhunger/highlygroceries/activities/GroceryList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="72" column="23" lean-forward="false" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
+            <state relative-caret-position="288">
+              <caret line="85" column="50" lean-forward="false" selection-start-line="85" selection-start-column="50" selection-end-line="85" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2376#2397#0" expanded="true" />
-                <element signature="e#2400#2421#0" expanded="true" />
-                <element signature="e#3023#4589#0" expanded="true" />
-                <element signature="e#3298#4468#0" expanded="true" />
-                <element signature="e#3784#4081#0" expanded="true" />
-                <element signature="e#4080#4081#0" expanded="true" />
-                <element signature="e#4164#4410#0" expanded="true" />
-                <element signature="e#4409#4410#0" expanded="true" />
-                <element signature="e#4467#4468#0" expanded="true" />
-                <element signature="e#4588#4589#0" expanded="true" />
+                <element signature="e#2450#2471#0" expanded="true" />
+                <element signature="e#2474#2495#0" expanded="true" />
+                <element signature="e#3097#4663#0" expanded="true" />
+                <element signature="e#3372#4542#0" expanded="true" />
+                <element signature="e#3858#4155#0" expanded="true" />
+                <element signature="e#4154#4155#0" expanded="true" />
+                <element signature="e#4238#4484#0" expanded="true" />
+                <element signature="e#4483#4484#0" expanded="true" />
+                <element signature="e#4541#4542#0" expanded="true" />
+                <element signature="e#4662#4663#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ListService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/se/munhunger/highlygroceries/service/ListService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="40" lean-forward="false" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+            <state relative-caret-position="391">
+              <caret line="23" column="48" lean-forward="false" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -94,10 +94,10 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="29" column="35" lean-forward="false" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+            <state relative-caret-position="192">
+              <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
               <folding>
-                <element signature="e#1005#1027#0" expanded="true" />
+                <element signature="e#949#971#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1845,11 +1845,11 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/grocery_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/se/munhunger/highlygroceries/model/Item.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/se/munhunger/highlygroceries/model/Category.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/se/munhunger/highlygroceries/activities/GroceryList.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/se/munhunger/highlygroceries/service/ListService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/grocery_list.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/se/munhunger/highlygroceries/activities/GroceryList.java" />
       </list>
     </option>
   </component>
@@ -2595,19 +2595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/grocery_list.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="29" column="35" lean-forward="false" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
-          <folding>
-            <element signature="e#1005#1027#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/se/munhunger/highlygroceries/model/Item.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -2617,26 +2604,6 @@
             <element signature="e#699#700#0" expanded="true" />
             <element signature="e#749#750#0" expanded="true" />
             <element signature="e#789#790#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/se/munhunger/highlygroceries/activities/GroceryList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="72" column="23" lean-forward="false" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2376#2397#0" expanded="true" />
-            <element signature="e#2400#2421#0" expanded="true" />
-            <element signature="e#3023#4589#0" expanded="true" />
-            <element signature="e#3298#4468#0" expanded="true" />
-            <element signature="e#3784#4081#0" expanded="true" />
-            <element signature="e#4080#4081#0" expanded="true" />
-            <element signature="e#4164#4410#0" expanded="true" />
-            <element signature="e#4409#4410#0" expanded="true" />
-            <element signature="e#4467#4468#0" expanded="true" />
-            <element signature="e#4588#4589#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2655,10 +2622,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/se/munhunger/highlygroceries/service/ListService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="40" lean-forward="false" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+        <state relative-caret-position="391">
+          <caret line="23" column="48" lean-forward="false" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/grocery_list.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+          <folding>
+            <element signature="e#949#971#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/se/munhunger/highlygroceries/activities/GroceryList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="85" column="50" lean-forward="false" selection-start-line="85" selection-start-column="50" selection-end-line="85" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2450#2471#0" expanded="true" />
+            <element signature="e#2474#2495#0" expanded="true" />
+            <element signature="e#3097#4663#0" expanded="true" />
+            <element signature="e#3372#4542#0" expanded="true" />
+            <element signature="e#3858#4155#0" expanded="true" />
+            <element signature="e#4154#4155#0" expanded="true" />
+            <element signature="e#4238#4484#0" expanded="true" />
+            <element signature="e#4483#4484#0" expanded="true" />
+            <element signature="e#4541#4542#0" expanded="true" />
+            <element signature="e#4662#4663#0" expanded="true" />
           </folding>
         </state>
       </provider>
