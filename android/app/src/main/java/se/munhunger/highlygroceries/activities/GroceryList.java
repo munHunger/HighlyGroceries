@@ -1,4 +1,5 @@
 package se.munhunger.highlygroceries.activities;
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,12 +9,19 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import se.munhunger.highlygroceries.R;
+import se.munhunger.highlygroceries.admob.AdMob;
+import se.munhunger.highlygroceries.fragments.NewItemFragment;
+import se.munhunger.highlygroceries.fragments.NewListFragment;
 import se.munhunger.highlygroceries.model.Category;
 import se.munhunger.highlygroceries.model.GroceryLists;
 import se.munhunger.highlygroceries.model.Item;
@@ -35,13 +43,37 @@ public class GroceryList extends AppCompatActivity {
 
     private List<Category> groceryList;
 
+    private GroceryLists groceryListParent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grocery_list);
-        GroceryLists groceryList = (GroceryLists) getIntent().getSerializableExtra(LIST_INTENT);
-        this.groceryList = listService.getList(groceryList.getId());
+        groceryListParent= (GroceryLists) getIntent().getSerializableExtra(LIST_INTENT);
+        this.groceryList = listService.getList(groceryListParent.getId());
         rebuildLists();
+        MobileAds.initialize(this, AdMob.ADMOB_APP_ID);
+        AdView adView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+    }
+
+    public void addItem(View view) {
+
+        NewItemFragment dialog = new NewItemFragment();
+        dialog.show(getFragmentManager(), "NewItemFragment");
+        dialog.setDialogListener(new NewItemFragment.DialogListener() {
+            @Override
+            public void onDialogPositiveClick(DialogFragment dialog, String message) {
+                listService.addItem(new Item(message), groceryListParent.getId());
+                rebuildLists();
+            }
+
+            @Override
+            public void onDialogNegativeClick(DialogFragment dialog) {
+
+            }
+        });
     }
 
     private void rebuildLists() {

@@ -2,7 +2,9 @@ package se.munhunger.highlygroceries.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
+import se.munhunger.highlygroceries.activities.GroceryList;
 import se.munhunger.highlygroceries.model.Category;
 import se.munhunger.highlygroceries.model.Item;
 import se.munhunger.highlygroceries.model.GroceryLists;
@@ -13,10 +15,21 @@ import se.munhunger.highlygroceries.model.GroceryLists;
 
 public class ListService {
 
-    public List<GroceryLists> getLists() {
-        List<GroceryLists> lists = new ArrayList<>();
+    private static List<GroceryLists> lists = new ArrayList<>();
+    static {
         lists.add(new GroceryLists("Weekly", "1"));
         lists.add(new GroceryLists("Christmas cooking", "41"));
+    }
+
+    public void addItem(Item item, String listID) {
+
+    }
+
+    public void createList(String name) {
+        lists.add(new GroceryLists(name, UUID.randomUUID().toString()));
+    }
+
+    public List<GroceryLists> getLists() {
         return lists;
     }
 

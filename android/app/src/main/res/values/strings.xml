@@ -2,4 +2,9 @@
     <string name="app_name">Highly Groceries</string>
     <string name="show_removed">Show removed items</string>
     <string name="hide_removed">Hide removed items</string>
+    <string name="create_list">Add new grocery list</string>
+    <string name="new_list_name">Name of the new list</string>
+    <string name="new_item_name">Name of the new item</string>
+    <string name="create">Create</string>
+    <string name="cancel">Cancel</string>
 </resources>
