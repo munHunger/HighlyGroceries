@@ -1,5 +1,6 @@
 package se.munhunger.highlygroceries.activities;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import java.util.List;
 
 import se.munhunger.highlygroceries.R;
 import se.munhunger.highlygroceries.admob.AdMob;
+import se.munhunger.highlygroceries.fragments.NewListFragment;
 import se.munhunger.highlygroceries.views.GroceryListItemView;
 import se.munhunger.highlygroceries.model.GroceryLists;
 import se.munhunger.highlygroceries.service.ListService;
@@ -31,10 +33,19 @@ public class ListView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final ListView context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
+        rebuildList();
+        MobileAds.initialize(this, AdMob.ADMOB_APP_ID);
+        AdView adView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+    }
+
+    private void rebuildList() {
+        final ListView context = this;
         LinearLayout list = findViewById(R.id.list);
+        list.removeAllViews();
         List<GroceryLists> lists = listService.getLists();
         for(final GroceryLists groceryList : lists) {
             GroceryListItemView groceryListItemView = new GroceryListItemView(context);
@@ -49,9 +60,21 @@ public class ListView extends AppCompatActivity {
                 }
             });
         }
-        MobileAds.initialize(this, AdMob.ADMOB_APP_ID);
-        AdView adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+    }
+
+    public void addList(View view) {
+        NewListFragment dialog = new NewListFragment();
+        dialog.show(getFragmentManager(), "NewListFragment");
+        dialog.setDialogListener(new NewListFragment.DialogListener() {
+            @Override
+            public void onDialogPositiveClick(DialogFragment dialog) {
+                rebuildList();
+            }
+
+            @Override
+            public void onDialogNegativeClick(DialogFragment dialog) {
+
+            }
+        });
     }
 }
