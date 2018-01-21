@@ -1,5 +1,7 @@
 package se.munhunger.highlygroceries.service;
 
+import com.facebook.AccessToken;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -34,6 +36,7 @@ public class ListService {
     }
 
     public List<Category> getList(String id) {
+        AccessToken token = AccessToken.getCurrentAccessToken();
         List<Category> groceryList = new ArrayList<>();
         Category category = new Category("Test Category");
         category.addItem(new Item("Malk"));

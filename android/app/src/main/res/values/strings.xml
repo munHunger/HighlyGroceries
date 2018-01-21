@@ -7,4 +7,6 @@
     <string name="new_item_name">Name of the new item</string>
     <string name="create">Create</string>
     <string name="cancel">Cancel</string>
+    <string name="facebook_app_id">140440246627235</string>
+    <string name="fb_login_protocol_scheme">fb140440246627235</string>
 </resources>
