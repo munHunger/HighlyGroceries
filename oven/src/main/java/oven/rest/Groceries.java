@@ -9,16 +9,16 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
 @Api(value = "initial_test")
-@Path("/ping")
-public class Test {
+@Path("/groceries")
+public class Groceries {
 
     @Inject
     GrocerieDAO grocerieDAO;
 
     @GET
-    @Path("/print")
-    public Response print() {
-        return Response.ok(grocerieDAO.getByTitle("random").get()).build();
+    @Path("/getAll")
+    public Response print() throws Exception {
+        return Response.ok(GrocerieDAO.getObjects("from Grocerie")).build();
     }
 
 }

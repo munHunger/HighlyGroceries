@@ -8,27 +8,27 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.UUID;
 
 @ApiModel(description = "Groceries")
 @Entity
-@Table(name = "grocerie")
+@Table(name = "food")
 public class Grocerie implements Serializable {
 
     @ApiModelProperty(value = "Random string")
     @Id
-    public String id;
+    public String name;
 
     @ApiModelProperty(value = "The name of the grocerie")
     @Column
-    public String title;
+    public String food_group;
+
 
     public Grocerie(){}
 
-    public Grocerie(String title)
+    public Grocerie(String name, String food_group)
     {
-        this.id = UUID.randomUUID().toString();
-        this.title = title;
+        this.name = name;
+        this.food_group = food_group;
     }
 
 }
