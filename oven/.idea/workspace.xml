@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa82924b-bc6d-4831-b130-264f316f8fbd" name="Default" comment="" />
+    <list default="true" id="fa82924b-bc6d-4831-b130-264f316f8fbd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/Category.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/GroceryList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/Item.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,11 +41,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Startup.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Startup.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/se/munhunger/oven/Startup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+            <state relative-caret-position="204">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,36 +108,93 @@
       <file leaf-file-name="Grocerie.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/Grocerie.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+            <state relative-caret-position="119">
+              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ErrorMessage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/ErrorMessage.java">
+      <file leaf-file-name="Item.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/Item.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="714">
+              <caret line="42" column="1" lean-forward="false" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+              <folding>
+                <element signature="e#205#206#0" expanded="true" />
+                <element signature="e#240#241#0" expanded="true" />
+                <element signature="e#356#357#0" expanded="true" />
+                <element signature="e#388#389#0" expanded="true" />
+                <element signature="e#439#440#0" expanded="true" />
+                <element signature="e#481#482#0" expanded="true" />
+                <element signature="e#513#514#0" expanded="true" />
+                <element signature="e#541#542#0" expanded="true" />
+                <element signature="e#583#584#0" expanded="true" />
+                <element signature="e#617#618#0" expanded="true" />
+                <element signature="e#654#655#0" expanded="true" />
+                <element signature="e#685#686#0" expanded="true" />
+                <element signature="e#735#736#0" expanded="true" />
+                <element signature="e#775#776#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/se/munhunger/oven/dao/DatabaseDAO.java">
+      <file leaf-file-name="Category.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/Category.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+            <state relative-caret-position="753">
+              <caret line="45" column="1" lean-forward="false" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#236#237#0" expanded="true" />
+                <element signature="e#277#278#0" expanded="true" />
+                <element signature="e#521#522#0" expanded="true" />
+                <element signature="e#552#553#0" expanded="true" />
+                <element signature="e#600#601#0" expanded="true" />
+                <element signature="e#640#641#0" expanded="true" />
+                <element signature="e#676#677#0" expanded="true" />
+                <element signature="e#704#705#0" expanded="true" />
+                <element signature="e#856#857#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GroceryList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/GroceryList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+              <folding>
+                <element signature="e#407#408#0" expanded="true" />
+                <element signature="e#435#436#0" expanded="true" />
+                <element signature="e#477#478#0" expanded="true" />
+                <element signature="e#511#512#0" expanded="true" />
+                <element signature="e#540#541#0" expanded="true" />
+                <element signature="e#565#566#0" expanded="true" />
+                <element signature="e#601#602#0" expanded="true" />
+                <element signature="e#629#630#0" expanded="true" />
+                <element signature="e#657#658#0" expanded="true" />
+                <element signature="e#684#685#0" expanded="true" />
+                <element signature="e#721#722#0" expanded="true" />
+                <element signature="e#753#754#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
@@ -494,6 +556,9 @@
         <option value="$PROJECT_DIR$/src/main/java/se/munhunger/oven/injection/Binder.java" />
         <option value="$PROJECT_DIR$/src/main/java/se/munhunger/oven/rest/Groceries.java" />
         <option value="$PROJECT_DIR$/src/main/java/se/munhunger/oven/Startup.java" />
+        <option value="$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/Item.java" />
+        <option value="$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/GroceryList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/Category.java" />
       </list>
     </option>
   </component>
@@ -508,6 +573,7 @@
     <option name="width" value="697" />
     <option name="height" value="735" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -740,12 +806,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517412702573</updated>
-      <workItem from="1517412706807" duration="537000" />
+      <workItem from="1517412706807" duration="832000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="537000" />
+    <option name="totallyTimeSpent" value="832000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -769,7 +835,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -810,14 +876,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/Grocerie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -873,10 +931,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/se/munhunger/oven/Startup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/Grocerie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/GroceryList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding>
+            <element signature="e#407#408#0" expanded="true" />
+            <element signature="e#435#436#0" expanded="true" />
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#540#541#0" expanded="true" />
+            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#601#602#0" expanded="true" />
+            <element signature="e#629#630#0" expanded="true" />
+            <element signature="e#657#658#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+            <element signature="e#721#722#0" expanded="true" />
+            <element signature="e#753#754#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="753">
+          <caret line="45" column="1" lean-forward="false" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#236#237#0" expanded="true" />
+            <element signature="e#277#278#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#552#553#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+            <element signature="e#640#641#0" expanded="true" />
+            <element signature="e#676#677#0" expanded="true" />
+            <element signature="e#704#705#0" expanded="true" />
+            <element signature="e#856#857#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/se/munhunger/oven/model/persistance/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="1" lean-forward="false" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+          <folding>
+            <element signature="e#205#206#0" expanded="true" />
+            <element signature="e#240#241#0" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#388#389#0" expanded="true" />
+            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#654#655#0" expanded="true" />
+            <element signature="e#685#686#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+            <element signature="e#775#776#0" expanded="true" />
           </folding>
         </state>
       </provider>
