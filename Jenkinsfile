@@ -16,9 +16,9 @@ pipeline {
             steps {
                 script {
                     dir('oven') {
-                        sh 'docker run -d --name ovenTestDB -p 3306:3306 mysql:latest'
+                        sh 'docker run -d --name ovenTestDB -p 33306:33306 mysql:latest'
                         sh 'docker build -t munhunger/highly-oven ./'
-                        sh 'docker run -d --name ovenTest -p 8080:8080 munhunger/highly-oven'
+                        sh 'docker run -d --name ovenTest -p 38080:38080 munhunger/highly-oven'
                     }
                 }
             }
