@@ -51,8 +51,8 @@ pipeline {
     }
     post {
         always {
-            sh 'docker stop ovenTestDB'
-            sh 'docker stop ovenTest'
+            sh 'docker kill ovenTestDB'
+            sh 'docker kill ovenTest'
         }
     }
 }
