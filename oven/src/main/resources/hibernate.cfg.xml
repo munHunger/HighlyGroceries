@@ -14,7 +14,7 @@
     <!-- Assume test is the database name -->
     <property
             name="hibernate.connection.url">
-      jdbc:mysql://localhost:3306/mustard?useSSL=false
+      jdbc:mysql://localhost:3306/highlygroceries?useSSL=false
     </property>
     <property name="hibernate.connection.username">
       root
@@ -29,6 +29,10 @@
       true
     </property>
 
-    <mapping class="oven.model.persistance.Grocerie" />
+    <mapping class="se.munhunger.oven.model.persistance.Grocerie" />
+    <mapping class="se.munhunger.oven.model.persistance.Category" />
+    <mapping class="se.munhunger.oven.model.persistance.GroceryList" />
+    <mapping class="se.munhunger.oven.model.persistance.Item" />
+    <mapping class="se.munhunger.oven.model.persistance.User" />
   </session-factory>
 </hibernate-configuration>

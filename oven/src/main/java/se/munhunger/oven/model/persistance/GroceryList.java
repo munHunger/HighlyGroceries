@@ -1,5 +1,7 @@
 package se.munhunger.oven.model.persistance;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -16,4 +18,9 @@ public class GroceryList implements Serializable {
     public String id;
     @Transient
     public int size;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "owner")
+    public User owner;
 }
