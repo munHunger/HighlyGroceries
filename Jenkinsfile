@@ -12,24 +12,26 @@ pipeline {
                 sh 'gradle war -b oven/build.gradle'
             }
         }
-        stage('test') {
+        stage('setup test') {
             steps {
                 script {
                     dir('oven') {
-                        def oven = docker.build("munhunger/oven")
-                        docker.image('mysql:latest').withRun('-e "MYSQL_DATABASE=highlygroceries" -e "MYSQL_USER=oven" -e "MYSQL_PASSWORD=hdf9dg6i354b"') { c ->
-                            docker.image('mysql:latest').inside("--link ${c.id}:db") {
-                                /* Wait until mysql service is up */
-                                sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
-                            }
-                            oven.withRun('-e "DB_USER=oven" -e "DB_PASS=hdf9dg6i354b"') { ovenContainer ->
-                                docker.image('gradle:latest').inside("--link ${ovenContainer.id}:oven") {
-                                    sh 'gradle test'
-                                }
-                            }
-                        }
+                        sh 'docker run -d --name ovenTestDB -p 3306:3306 mysql:latest'
+                        sh 'docker build -t munhunger/highly-oven ./'
+                        sh 'docker run -d --name ovenTest -p 8080:8080 munhunger/highly-oven'
                     }
                 }
+            }
+        }
+        stage('test environment') {
+            agent {
+                docker { 
+                    image 'gradle:latest'
+                    reuseNode true 
+                }
+            }
+            steps {
+                sh 'gradle test -b oven/build.gradle'
             }
         }
         stage('build dockerimage') {
@@ -45,6 +47,12 @@ pipeline {
                     }
                 }
             }
+        }
+    }
+    post {
+        always {
+            sh 'docker stop ovenTestDB'
+            sh 'docker stop ovenTest'
         }
     }
 }
