@@ -10,17 +10,19 @@ pipeline {
             }
         }
         stage('test') {
-            node {
-                dir('oven') {
-                    def oven = docker.build("munhunger/oven")
-                    docker.image('mysql:latest').withRun('-e "MYSQL_DATABASE=highlygroceries" -e "MYSQL_USER=oven" -e "MYSQL_PASSWORD=hdf9dg6i354b"') { c ->
-                        docker.image('mysql:latest').inside("--link ${c.id}:db") {
-                            /* Wait until mysql service is up */
-                            sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
-                        }
-                        oven.withRun('-e "DB_USER=oven" -e "DB_PASS=hdf9dg6i354b"') { ovenContainer ->
-                            docker.image('gradle:latest').inside("--link ${ovenContainer.id}:oven") {
-                                sh 'gradle test'
+            steps {
+                script {
+                    dir('oven') {
+                        def oven = docker.build("munhunger/oven")
+                        docker.image('mysql:latest').withRun('-e "MYSQL_DATABASE=highlygroceries" -e "MYSQL_USER=oven" -e "MYSQL_PASSWORD=hdf9dg6i354b"') { c ->
+                            docker.image('mysql:latest').inside("--link ${c.id}:db") {
+                                /* Wait until mysql service is up */
+                                sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
+                            }
+                            oven.withRun('-e "DB_USER=oven" -e "DB_PASS=hdf9dg6i354b"') { ovenContainer ->
+                                docker.image('gradle:latest').inside("--link ${ovenContainer.id}:oven") {
+                                    sh 'gradle test'
+                                }
                             }
                         }
                     }
