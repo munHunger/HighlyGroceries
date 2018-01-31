@@ -18,8 +18,8 @@ pipeline {
                             /* Wait until mysql service is up */
                             sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
                         }
-                        oven.withRun('-e "DB_USER=oven" -e "DB_PASS=hdf9dg6i354b"') { oven ->
-                            docker.image('gradle:latest').inside("--link ${oven.id}:oven") {
+                        oven.withRun('-e "DB_USER=oven" -e "DB_PASS=hdf9dg6i354b"') { ovenContainer ->
+                            docker.image('gradle:latest').inside("--link ${ovenContainer.id}:oven") {
                                 sh 'gradle test'
                             }
                         }
