@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="se.munhunger.highlygroceries.activities.GroceryList">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/groceryList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp">
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/toggleRemoved"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/show_removed"
+                android:onClick="toggleShowRemoved"
+                android:layout_margin="15dp"/>
+
+            <LinearLayout
+                android:id="@+id/removedList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp">
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-6387972482516053/3461321806">
+        </com.google.android.gms.ads.AdView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="16dp"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@id/adView"
+            android:focusable="true"
+            android:clickable="true"
+            android:onClick="addItem"
+            android:src="@drawable/ic_add_black_24dp" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
