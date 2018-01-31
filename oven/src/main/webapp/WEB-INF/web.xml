@@ -10,12 +10,12 @@
             <param-name>jersey.config.server.provider.packages</param-name>
             <param-value>
                 io.swagger.jaxrs.listing,
-                oven.rest
+                se.munhunger.oven.rest
             </param-value>
         </init-param>
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
-            <param-value>oven.Startup</param-value>
+            <param-value>se.munhunger.oven.Startup</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>
@@ -42,7 +42,7 @@
 
     <servlet>
         <servlet-name>SwaggerBootstrap</servlet-name>
-        <servlet-class>oven.swagger.Bootstrap</servlet-class>
+        <servlet-class>se.munhunger.oven.swagger.Bootstrap</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
 </web-app>

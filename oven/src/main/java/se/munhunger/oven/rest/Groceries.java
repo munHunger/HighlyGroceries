@@ -1,7 +1,7 @@
-package oven.rest;
+package se.munhunger.oven.rest;
 
 import io.swagger.annotations.Api;
-import oven.dao.GrocerieDAO;
+import se.munhunger.oven.dao.GrocerieDAO;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

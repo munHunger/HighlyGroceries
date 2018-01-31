@@ -1,4 +1,4 @@
-package oven.swagger;
+package se.munhunger.oven.swagger;
 
 import io.swagger.jaxrs.config.BeanConfig;
 import io.swagger.jaxrs.config.SwaggerContextService;

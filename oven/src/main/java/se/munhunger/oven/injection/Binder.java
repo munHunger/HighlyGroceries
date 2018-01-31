@@ -1,8 +1,8 @@
-package oven.injection;
+package se.munhunger.oven.injection;
 
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
-import oven.dao.GrocerieDAO;
-import oven.service.Groceries;
+import se.munhunger.oven.dao.GrocerieDAO;
+import se.munhunger.oven.service.Groceries;
 
 public class Binder extends AbstractBinder{
     @Override

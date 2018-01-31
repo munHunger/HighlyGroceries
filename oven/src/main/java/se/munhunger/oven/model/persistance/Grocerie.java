@@ -1,4 +1,4 @@
-package oven.model.persistance;
+package se.munhunger.oven.model.persistance;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

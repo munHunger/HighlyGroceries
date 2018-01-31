@@ -1,4 +1,4 @@
-package oven.dao;
+package se.munhunger.oven.dao;
 
 import org.hibernate.Session;
 import org.hibernate.boot.Metadata;
@@ -6,8 +6,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
-import oven.model.ErrorMessage;
-import oven.model.persistance.Grocerie;
+import se.munhunger.oven.model.persistance.Grocerie;
 
 import java.util.List;
 import java.util.Optional;

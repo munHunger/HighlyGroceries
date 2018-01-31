@@ -1,4 +1,4 @@
-package oven.dao;
+package se.munhunger.oven.dao;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
