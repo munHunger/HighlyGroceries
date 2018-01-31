@@ -3,7 +3,10 @@ pipeline {
     stages {
         stage('build war') {
             agent {
-                docker { image 'gradle:latest' }
+                docker { 
+                    image 'gradle:latest'
+                    reuseNode true 
+                }
             }
             steps {
                 sh 'gradle war -b oven/build.gradle'
