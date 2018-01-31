@@ -24,4 +24,12 @@ public class UserDAO extends DatabaseDAO
             return Optional.of(user);
         }
     }
+
+    public void deleteUser(User user) {
+        try(Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.delete(user);
+            session.getTransaction().commit();
+        }
+    }
 }

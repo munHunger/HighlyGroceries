@@ -30,12 +30,24 @@ public class User
     }
 
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public Response getUser(@HeaderParam("email") String email) {
         try
         {
             return Response.ok(userService.getUser(email)).build();
         } catch (NotInDatabaseException e)
         {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
+    @DELETE
+    public Response deleteUser(@HeaderParam("email") String email) {
+        try
+        {
+            userService.deleteUser(email);
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } catch (NotInDatabaseException e) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }

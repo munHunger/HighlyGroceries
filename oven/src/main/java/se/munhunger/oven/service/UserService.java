@@ -19,4 +19,8 @@ public class UserService
     {
         return userDAO.getUser(email).orElseThrow(NotInDatabaseException::new);
     }
+
+    public void deleteUser(String email) throws NotInDatabaseException {
+        userDAO.deleteUser(userDAO.getUser(email).orElseThrow(NotInDatabaseException::new));
+    }
 }
