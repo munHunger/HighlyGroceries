@@ -17,7 +17,7 @@ import static com.mscharhag.oleaster.runner.StaticRunnerSupport.*;
 @PowerMockRunnerDelegate(OleasterRunner.class)
 public class UserTest
 {
-    private String baseURL = (System.getenv().get("OVEN_URL") != null ? System.getenv().get("OVEN_URL") : "http://localhost:8080") + "/oven/api/user";
+    private String baseURL = (System.getenv().get("OVEN_URL") != null ? System.getenv().get("OVEN_URL") : "http://localhost:8080") + "/oven";
     private Client client;
 
     {
@@ -27,7 +27,11 @@ public class UserTest
         });
         describe("System is up and running", () -> {
             it("can get a 200 from swagger", () -> {
-                Assert.assertTrue(true);
+                Assert.assertEquals(200,
+                                    client.target(baseURL + "/swagger")
+                                        .request()
+                                        .get()
+                                        .getStatus());
             });
             it("can get 200 from google", () -> {
                 Assert.assertEquals(200,
@@ -40,7 +44,7 @@ public class UserTest
                 /*
                 it("returns 204 upon creation", () -> {
                     Assert.assertEquals(204,
-                                        client.target(baseURL)
+                                        client.target(baseURL + "/api/user")
                                             .request()
                                             .header("email", "mail@mail.mail")
                                             .post(Entity.json(null))
@@ -48,7 +52,7 @@ public class UserTest
                 });
                 describe("Has a user created", () -> {
                     beforeEach(() -> {
-                        client.target(baseURL)
+                        client.target(baseURL + "/api/user")
                             .request()
                             .header("email", "mail@mail.mail")
                             .post(Entity.json(null));
@@ -59,7 +63,7 @@ public class UserTest
                     });
                 });
                 afterEach(() -> {
-                    client.target(baseURL).request().header("email", "mail@mail.mail").delete();
+                    client.target(baseURL + "/api/user").request().header("email", "mail@mail.mail").delete();
                 });
                 */
             });
