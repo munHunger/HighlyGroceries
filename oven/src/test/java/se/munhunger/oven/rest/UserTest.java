@@ -33,6 +33,7 @@ public class UserTest
                                           .get()
                                           .getStatus());
             });
+            /*
             it("returns 204 upon creation", () -> {
                 Assert.assertEquals(204,
                                     client.target(baseURL)
@@ -56,6 +57,7 @@ public class UserTest
             afterEach(() -> {
                 client.target(baseURL).request().header("email", "mail@mail.mail").delete();
             });
+            */
         });
     }
 }
