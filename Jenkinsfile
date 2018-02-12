@@ -12,6 +12,19 @@ pipeline {
                 sh 'gradle war -b oven/build.gradle'
             }
         }
+        stage('test') {
+            docker.image('mysql:latest').withRun('-e "MYSQL_ROOT_PASSWORD=password"') { c -> 
+                docker.image('mysql:latest').inside("--link ${c.id}:db") {
+                    sh 'while ! mysqladmin pink -hdb --silent; do sleep 1; done'
+                }
+                docker.image('munhunger/highly-oven').withRun(h -> {
+                    docker.image('gradle:latest').inside("--link ${c.id}:backend") {
+                        sh 'gradle test -b oven/build.gradle'
+                    }
+                }).inside("--link ${c.id}:db") {
+                }
+            }
+        }
         stage('setup test') {
             steps {
                 script {
