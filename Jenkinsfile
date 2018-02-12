@@ -13,6 +13,7 @@ pipeline {
             }
         }
         stage('test') {
+            def test = 'test'
             steps {
                 script {
                     docker.image('mysql:latest').withRun('-e "MYSQL_ROOT_PASSWORD=password" -e "MYSQL_USER=root" -e "MYSQL_DATABASE=highlygroceries"') { c -> 
