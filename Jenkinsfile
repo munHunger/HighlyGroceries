@@ -23,10 +23,10 @@ pipeline {
                             docker.image('munhunger/highly-oven').inside("--link ${c.id}:db -e 'DB_URL=db:3306' -e 'DB_PASS=password' -e 'DB_USER=root'") {
                                 sh 'sleep 5'
                             }
+                            sh "docker logs ${h.id}"
                             docker.image('gradle:latest').inside("--link ${h.id}:backend -e 'OVEN_URL=http://backend:8080'") {
                                 sh 'gradle test -b oven/build.gradle'
                             }
-                            sh "docker logs ${h.id}"
                         }
                     }
                 }
