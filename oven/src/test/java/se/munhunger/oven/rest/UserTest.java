@@ -32,7 +32,7 @@ public class UserTest
                                           .request()
                                           .get()
                                           .getStatus());
-            })
+            });
             it("returns 204 upon creation", () -> {
                 Assert.assertEquals(204,
                                     client.target(baseURL)

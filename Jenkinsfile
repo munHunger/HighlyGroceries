@@ -46,12 +46,4 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            sh 'docker stop ovenTestDB'
-            sh 'docker stop ovenTest'
-            sh 'docker rm ovenTestDB'
-            sh 'docker rm ovenTest'
-        }
-    }
 }
