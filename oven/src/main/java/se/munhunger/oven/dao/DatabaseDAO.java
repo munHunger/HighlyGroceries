@@ -23,6 +23,7 @@ public class DatabaseDAO {
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure()
                 .build();
         Configuration config = new Configuration();
+        System.out.println("url:" + env.get("DB_URL"));
         if(env.containsKey("DB_URL"))
             config.setProperty("hibernate.connection.url", "jdbc:" + env.get("DB_URL"));
         if(env.containsKey("DB_USER"))
