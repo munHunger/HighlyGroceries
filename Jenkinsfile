@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    def id = 'id'
     stages {
         stage('build war') {
             agent {
@@ -45,6 +46,11 @@ pipeline {
                     }
                 }
             }
+        }
+    }
+    post {
+        always {
+            sh "echo ${id}"
         }
     }
 }
