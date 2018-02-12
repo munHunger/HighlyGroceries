@@ -15,40 +15,20 @@ pipeline {
         stage('test') {
             steps {
                 script {
-                    docker.image('mysql:latest').withRun('-e "MYSQL_ROOT_PASSWORD=password"') { c -> 
-                        docker.image('mysql:latest').inside("--link ${c.id}:db") {
-                            sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
-                        }
+                    docker.image('mysql:latest').withRun('-e "MYSQL_ROOT_PASSWORD=password" -e "MYSQL_DATABASE=highlygroceries"') { c -> 
                         docker.image('munhunger/highly-oven').withRun('-e "test=test"') { h -> 
-                            docker.image('gradle:latest').inside("--link ${c.id}:backend") {
+                            docker.image('mysql:latest').inside("--link ${c.id}:db") {
+                                sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
+                            }
+                            docker.image('munhunger/highly-oven').inside("--link ${c.id}:db") {
+                                sh 'while ! ping localhost:8080; do sleep 1; done'
+                            }
+                            docker.image('gradle:latest').inside("--link ${h.id}:backend") {
                                 sh 'gradle test -b oven/build.gradle'
                             }
-                        }.inside("--link ${c.id}:db") {
                         }
                     }
                 }
-            }
-        }
-        stage('setup test') {
-            steps {
-                script {
-                    dir('oven') {
-                        sh 'docker run -d --name ovenTestDB -p 33306:33306 mysql:latest'
-                        sh 'docker build -t munhunger/highly-oven ./'
-                        sh 'docker run -d --name ovenTest -p 38080:38080 munhunger/highly-oven'
-                    }
-                }
-            }
-        }
-        stage('test environment') {
-            agent {
-                docker { 
-                    image 'gradle:latest'
-                    reuseNode true 
-                }
-            }
-            steps {
-                sh 'gradle test -b oven/build.gradle'
             }
         }
         stage('build dockerimage') {
