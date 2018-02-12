@@ -40,7 +40,7 @@ public class UserTest
                                             .request()
                                             .header("email", "mail@mail.mail")
                                             .post(Entity.json(null))
-                                            .getStatus());
+                                            .getStatus(), "non 204 from backend");
                 });
                 describe("Has a user created", () -> {
                     beforeEach(() -> {
