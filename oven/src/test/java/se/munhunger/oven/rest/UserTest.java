@@ -22,7 +22,7 @@ public class UserTest
 
     {
         before(() -> {
-            System.out.println(baseURL);
+            System.err.println(baseURL);
             client = ClientBuilder.newClient();
         });
         describe("System is up and running", () -> {
