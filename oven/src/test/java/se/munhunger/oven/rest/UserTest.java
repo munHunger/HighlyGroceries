@@ -25,39 +25,44 @@ public class UserTest
             System.out.println(baseURL);
             client = ClientBuilder.newClient();
         });
-        describe("Creating a user", () -> {
+        describe("System is up and running", () -> {
+            it("can get a 200 from swagger", () -> {
+                Assert.assertTrue(true);
+            });
             it("can get 200 from google", () -> {
                 Assert.assertEquals(200,
                                     client.target("http://google.com")
-                                          .request()
-                                          .get()
-                                          .getStatus());
+                                        .request()
+                                        .get()
+                                        .getStatus());
             });
-            /*
-            it("returns 204 upon creation", () -> {
-                Assert.assertEquals(204,
-                                    client.target(baseURL)
-                                          .request()
-                                          .header("email", "mail@mail.mail")
-                                          .post(Entity.json(null))
-                                          .getStatus());
-            });
-            describe("Has a user created", () -> {
-                beforeEach(() -> {
-                    client.target(baseURL)
-                          .request()
-                          .header("email", "mail@mail.mail")
-                          .post(Entity.json(null));
+            describe("Creating a user", () -> {
+                /*
+                it("returns 204 upon creation", () -> {
+                    Assert.assertEquals(204,
+                                        client.target(baseURL)
+                                            .request()
+                                            .header("email", "mail@mail.mail")
+                                            .post(Entity.json(null))
+                                            .getStatus());
                 });
-                it("Can fetch the user", () -> {
-                    User user = client.target(baseURL).request().header("email", "mail@mail.mail").get(User.class);
-                    Assert.assertEquals("mail@mail.mail", user.email);
+                describe("Has a user created", () -> {
+                    beforeEach(() -> {
+                        client.target(baseURL)
+                            .request()
+                            .header("email", "mail@mail.mail")
+                            .post(Entity.json(null));
+                    });
+                    it("Can fetch the user", () -> {
+                        User user = client.target(baseURL).request().header("email", "mail@mail.mail").get(User.class);
+                        Assert.assertEquals("mail@mail.mail", user.email);
+                    });
                 });
+                afterEach(() -> {
+                    client.target(baseURL).request().header("email", "mail@mail.mail").delete();
+                });
+                */
             });
-            afterEach(() -> {
-                client.target(baseURL).request().header("email", "mail@mail.mail").delete();
-            });
-            */
         });
     }
 }
