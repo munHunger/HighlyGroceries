@@ -22,9 +22,17 @@ public class UserTest
 
     {
         before(() -> {
+            System.out.println(baseURL);
             client = ClientBuilder.newClient();
         });
         describe("Creating a user", () -> {
+            it("can get 200 from google", () -> {
+                Assert.assertEquals(200,
+                                    client.target("http://google.com")
+                                          .request()
+                                          .get()
+                                          .getStatus());
+            })
             it("returns 204 upon creation", () -> {
                 Assert.assertEquals(204,
                                     client.target(baseURL)
