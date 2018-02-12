@@ -13,7 +13,6 @@ pipeline {
             }
         }
         stage('test') {
-            def test = 'test'
             steps {
                 script {
                     docker.image('mysql:latest').withRun('-e "MYSQL_ROOT_PASSWORD=password" -e "MYSQL_USER=root" -e "MYSQL_DATABASE=highlygroceries"') { c -> 
@@ -25,14 +24,15 @@ pipeline {
                                 sh 'sleep 5'
                             }
                             sh "docker logs ${h.id}"
-                            docker.image('gradle:latest').inside("--link ${h.id}:backend -e 'OVEN_URL=http://backend:8080'") {
-                                try {
-                                    sh 'gradle test -b oven/build.gradle'
+                            try {
+                                docker.image('gradle:latest').inside("--link ${h.id}:backend -e 'OVEN_URL=http://backend:8080'") {
+                                        sh 'gradle test -b oven/build.gradle'
+                                    
                                 }
-                                catch (exc) {
-                                    echo 'ERROR!!'
-                                    sh "docker logs ${h.id}"
-                                }
+                            }
+                            catch (exc) {
+                                echo 'ERROR!!'
+                                sh "docker logs ${h.id}"
                             }
                         }
                     }
