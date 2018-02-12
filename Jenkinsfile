@@ -14,15 +14,17 @@ pipeline {
         }
         stage('test') {
             steps {
-                docker.image('mysql:latest').withRun('-e "MYSQL_ROOT_PASSWORD=password"') { c -> 
-                    docker.image('mysql:latest').inside("--link ${c.id}:db") {
-                        sh 'while ! mysqladmin pink -hdb --silent; do sleep 1; done'
-                    }
-                    docker.image('munhunger/highly-oven').withRun('-e "test=test"') { h -> 
-                        docker.image('gradle:latest').inside("--link ${c.id}:backend") {
-                            sh 'gradle test -b oven/build.gradle'
+                script {
+                    docker.image('mysql:latest').withRun('-e "MYSQL_ROOT_PASSWORD=password"') { c -> 
+                        docker.image('mysql:latest').inside("--link ${c.id}:db") {
+                            sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
                         }
-                    }.inside("--link ${c.id}:db") {
+                        docker.image('munhunger/highly-oven').withRun('-e "test=test"') { h -> 
+                            docker.image('gradle:latest').inside("--link ${c.id}:backend") {
+                                sh 'gradle test -b oven/build.gradle'
+                            }
+                        }.inside("--link ${c.id}:db") {
+                        }
                     }
                 }
             }
