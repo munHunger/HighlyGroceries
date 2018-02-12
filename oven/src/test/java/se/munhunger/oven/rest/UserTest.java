@@ -26,7 +26,7 @@ public class UserTest
             client = ClientBuilder.newClient();
         });
         describe("System is up and running", () -> {
-            it("can get a 200 from swagger at " + baseURL + "/swagger", () -> {
+            it("can get a 200 from swagger", () -> {
                 Assert.assertEquals(200,
                                     client.target(baseURL + "/swagger")
                                         .request()
