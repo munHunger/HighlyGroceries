@@ -33,15 +33,7 @@ public class UserTest
                                         .get()
                                         .getStatus());
             });
-            it("can get 200 from google", () -> {
-                Assert.assertEquals(200,
-                                    client.target("http://google.com")
-                                        .request()
-                                        .get()
-                                        .getStatus());
-            });
             describe("Creating a user", () -> {
-                /*
                 it("returns 204 upon creation", () -> {
                     Assert.assertEquals(204,
                                         client.target(baseURL + "/api/user")
@@ -65,7 +57,6 @@ public class UserTest
                 afterEach(() -> {
                     client.target(baseURL + "/api/user").request().header("email", "mail@mail.mail").delete();
                 });
-                */
             });
         });
     }

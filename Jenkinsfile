@@ -21,7 +21,7 @@ pipeline {
                                 sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
                             }
                             docker.image('munhunger/highly-oven').inside("--link ${c.id}:db") {
-                                
+                                sh 'sleep 5'
                             }
                             docker.image('gradle:latest').inside("--link ${h.id}:backend -e 'OVEN_URL=http://backend:8080'") {
                                 sh 'gradle test -b oven/build.gradle'
