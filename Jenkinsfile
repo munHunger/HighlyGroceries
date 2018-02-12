@@ -31,7 +31,7 @@ pipeline {
                             }
                             catch (exc) {
                                 sh "docker logs ${h.id}"
-                                throw
+                                throw exc
                             }
                         }
                     }
