@@ -26,9 +26,14 @@ pipeline {
                             }
                             sh "docker logs ${h.id}"
                             docker.image('gradle:latest').inside("--link ${h.id}:backend -e 'OVEN_URL=http://backend:8080'") {
-                                sh 'gradle test -b oven/build.gradle'
+                                try {
+                                    sh 'gradle test -b oven/build.gradle'
+                                }
+                                catch (exc) {
+                                    echo 'ERROR!!'
+                                    sh "docker logs ${h.id}"
+                                }
                             }
-                            sh "docker logs ${h.id}"
                         }
                     }
                 }
