@@ -35,12 +35,12 @@ public class UserTest
             });
             describe("Creating a user", () -> {
                 it("returns 204 upon creation", () -> {
-                    Assert.assertEquals(204,
+                    Assert.assertEquals("non 204 from backend", 204,
                                         client.target(baseURL + "/api/user")
                                             .request()
                                             .header("email", "mail@mail.mail")
                                             .post(Entity.json(null))
-                                            .getStatus(), "non 204 from backend");
+                                            .getStatus());
                 });
                 describe("Has a user created", () -> {
                     beforeEach(() -> {
