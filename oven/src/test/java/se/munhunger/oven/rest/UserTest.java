@@ -17,7 +17,7 @@ import static com.mscharhag.oleaster.runner.StaticRunnerSupport.*;
 @PowerMockRunnerDelegate(OleasterRunner.class)
 public class UserTest
 {
-    private String baseURL = "http://localhost:8080/oven/api/user";
+    private String baseURL = (env.get("OVEN_URL") != null ? env.get("OVEN_URL") : "http://localhost:8080") + "/oven/api/user";
     private Client client;
 
     {

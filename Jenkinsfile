@@ -23,7 +23,7 @@ pipeline {
                             docker.image('munhunger/highly-oven').inside("--link ${c.id}:db") {
                                 
                             }
-                            docker.image('gradle:latest').inside("--link ${h.id}:backend") {
+                            docker.image('gradle:latest').inside("--link ${h.id}:backend -e 'OVEN_URL=http://backend'") {
                                 sh 'gradle test -b oven/build.gradle'
                             }
                         }
