@@ -55,7 +55,7 @@ pipeline {
     }
     post {
         always {
-            slackSend(color: '#07ba75', message: "${buildStatus}: `${env.JOB_NAME}` #${env.BUILD_NUMBER}:\n${env.BUILD_URL}")
+            slackSend(color: '#07ba75', message: "${env.JOB_NAME} #${env.BUILD_NUMBER}:\n${env.BUILD_URL}")
         }
     }
 }
