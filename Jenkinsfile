@@ -41,8 +41,7 @@ pipeline {
                                 }
                                 try {
                                     docker.image('gradle:latest').inside("--link ${h.id}:backend -e 'OVEN_URL=http://backend:8080'") {
-                                            sh 'gradle test'
-                                        
+                                        sh 'gradle test'
                                     }
                                 }
                                 catch (exc) {
