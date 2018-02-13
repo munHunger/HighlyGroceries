@@ -32,7 +32,7 @@ pipeline {
                     dir('oven') {
                         def image = docker.build("munhunger/highly-oven");
                         docker.image('mysql:latest').withRun('-e "MYSQL_ROOT_PASSWORD=password" -e "MYSQL_USER=root" -e "MYSQL_DATABASE=highlygroceries"') { c -> 
-                            image.withRun('-e "DB_URL=mysql://db:3306/highlygroceries?useSSL=false" -e "DB_PASS=password" -e "DB_USER=root"') { h -> 
+                            image.withRun("--link ${c.id}:db -e DB_URL=mysql://db:3306/highlygroceries?useSSL=false -e DB_PASS=password -e DB_USER=root) { h -> 
                                 docker.image('mysql:latest').inside("--link ${c.id}:db") {
                                     sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
                                 }
