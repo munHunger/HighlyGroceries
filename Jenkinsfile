@@ -53,4 +53,9 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            slackSend(color: '#F0F', message: 'Hello')
+        }
+    }
 }
