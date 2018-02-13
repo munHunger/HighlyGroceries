@@ -26,17 +26,20 @@ public class DatabaseDAO {
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure()
                 .build();
         Configuration config = new Configuration();
-        if(env.containsKey("DB_URL")) {
-            logger.info(() -> "DB_URL Environment was set, setting hibernate.connection.url to " + env.get("DB_URL"));
-            config.setProperty("hibernate.connection.url", "jdbc:" + env.get("DB_URL"));
+        String url = System.getenv("DB_URL");
+        String user = System.getenv("DB_USER");
+        String pass = System.getenv("DB_PASS");
+        if(url != null) {
+            logger.info(() -> "DB_URL Environment was set, setting hibernate.connection.url to " + url);
+            config.setProperty("hibernate.connection.url", "jdbc:" + url);
         }
-        if(env.containsKey("DB_USER")) {
-            logger.info(() -> "DB_USER Environment was set, setting hibernate.connection.username to " + env.get("DB_USER"));
-            config.setProperty("hibernate.connection.username", env.get("DB_USER"));
+        if(user != null) {
+            logger.info(() -> "DB_USER Environment was set, setting hibernate.connection.username to " + user);
+            config.setProperty("hibernate.connection.username", user);
         }
-        if(env.containsKey("DB_PASS")) {
+        if(pass != null) {
             logger.info(() -> "DB_PASS Environment was set, setting hibernate.connection.password");
-            config.setProperty("hibernate.connection.password", env.get("DB_PASS"));
+            config.setProperty("hibernate.connection.password", pass);
         }
         sessionFactory = config.buildSessionFactory(registry);
         Runtime.getRuntime().addShutdownHook(new Thread(() -> StandardServiceRegistryBuilder.destroy(registry)));
