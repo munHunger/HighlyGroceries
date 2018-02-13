@@ -54,8 +54,11 @@ pipeline {
         }
     }
     post {
-        always {
-            slackSend(color: '#07ba75', message: "${env.JOB_NAME} #${env.BUILD_NUMBER}:\n${env.BUILD_URL}")
+        failure {
+            slackSend(color: '#F00', message: "Build failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}:\n${env.BUILD_URL}")
+        }
+        success {
+            slackSend(color: '#0F0', message: "Build failure: ${env.JOB_NAME} #${env.BUILD_NUMBER}:\n${env.BUILD_URL}")
         }
     }
 }
