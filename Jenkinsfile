@@ -1,6 +1,20 @@
 pipeline {
     agent any
     stages {
+        stage('github pending status') {
+            steps {
+                script {
+                    withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '86bc4b4c-e630-4238-b9f4-22270d1077b0',
+                    usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+                        sh 'echo uname=$USERNAME pwd=$PASSWORD'
+                        sh 'curl "https://api.github.com/repos/munhunger/HighlyGroceries/statuses/$GIT_COMMIT?access_token=$PASSWORD" \
+                                -H "Content-Type: application/json" \
+                                -X POST \
+                                -d "{\"state\": \"pending\", \"description\": \"Jenkins\", \"target_url\": \"http://my.jenkins.box.com/job/dividata/$BUILD_NUMBER/console\"}"'
+                    }
+                }
+            }
+        }
         stage('build war') {
             agent {
                 docker { 
