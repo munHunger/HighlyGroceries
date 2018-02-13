@@ -22,7 +22,6 @@ public class DatabaseDAO {
     private static void init()
     {
         logger.info("Initializing database");
-        Map<String, String> env = System.getenv();
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure()
                 .build();
         Configuration config = new Configuration();

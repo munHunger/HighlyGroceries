@@ -36,7 +36,7 @@ pipeline {
                                 docker.image('mysql:latest').inside("--link ${c.id}:db") {
                                     sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
                                 }
-                                image.inside("--link ${c.id}:db -e 'DB_URL=db:3306' -e 'DB_PASS=password' -e 'DB_USER=root'") {
+                                image.inside("--link ${c.id}:db -e DB_URL=\"db:3306\" -e DB_PASS=\"password\" -e \"DB_USER=root\"") {
                                     sh 'sleep 5'
                                 }
                                 try {
