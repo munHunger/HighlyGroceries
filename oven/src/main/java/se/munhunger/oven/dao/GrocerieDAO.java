@@ -10,23 +10,15 @@ import se.munhunger.oven.model.persistance.Grocerie;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 public class GrocerieDAO extends DatabaseDAO {
 
-    private static void init()
-    {
-        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure() // configures settings from hibernate.cfg.xml
-                .build();
-        MetadataSources mds = new MetadataSources(registry);
-        Metadata md = mds.buildMetadata();
-        sessionFactory = md.buildSessionFactory();
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            StandardServiceRegistryBuilder.destroy(registry);
-        }));
-    }
+    private static Logger logger = Logger.getLogger(GrocerieDAO.class.getName());
 
     public void insert(Grocerie item)
     {
+        logger.info(() -> "Inserting item: " + item.food_group + ":" + item.name);
         try (Session session = sessionFactory.openSession())
         {
             session.beginTransaction();
@@ -37,8 +29,6 @@ public class GrocerieDAO extends DatabaseDAO {
 
     public static List getObjects(String hibernateQuery) throws Exception
     {
-        if (sessionFactory == null)
-            init();
         try (Session session = sessionFactory.openSession())
         {
             Query query = session.createQuery(hibernateQuery);
