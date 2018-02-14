@@ -55,6 +55,9 @@ pipeline {
             }
         }
         stage('build dockerimage') {
+            when {
+                branch 'master'
+            }
             steps {
                 script {
                     dir('oven') {
