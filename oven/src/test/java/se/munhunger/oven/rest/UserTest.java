@@ -50,7 +50,7 @@ public class UserTest
                             .post(Entity.json(null));
                     });
                     it("Can fetch the user", () -> {
-                        User user = client.target(baseURL).request().header("email", "mail@mail.mail").get(User.class);
+                        User user = client.target(baseURL + "/api/user").request().header("email", "mail@mail.mail").get(User.class);
                         Assert.assertEquals("mail@mail.mail", user.email);
                     });
                 });
